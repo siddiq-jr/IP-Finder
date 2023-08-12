@@ -1,0 +1,7 @@
+# Text files "Notes and test Samples"
+*.txt
+# all .tmp Files 
+*.tmp
+# lab files for testing code 
+lab.bat
+lab2.bat
