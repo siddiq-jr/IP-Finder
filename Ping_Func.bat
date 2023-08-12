@@ -8,19 +8,19 @@ setlocal
     mkdir FINDER\TMP\SUB >nul
     goto :Ping_Func
 
-::Here will check for all active addressess
+::Here will check for all active addresses
 :Ping_Func
-    rem address var is for test only and will be set automaticly in the full software
+    rem address var is for test only and will be set automatically in the full software
     rem remember to change the rang from 3 to 255
-    rem address var will be supplied from the previouse function
+    rem address var will be supplied from the previous function
     set adress=192.168.216
     for /l %%i in (0,1,3) do (
        echo %adress%.%%i >> FINDER\TMP\addresses.tmp
     )
 
-:: This is the main ping/check loop, will check for all active addresess. 
+:: This is the main ping/check loop, will check for all active addresses. 
     :loop
-        rem loop function will handel the addressess list and ping all address one by one.
+        rem loop function will handle the addresses list and ping all address one by one.
         for /f %%i in (FINDER\TMP\addresses.tmp) do (
            set add=%%i
            type FINDER\TMP\addresses.tmp | find /c "." > FINDER\TMP\count.tmp
@@ -44,7 +44,7 @@ setlocal
           )
    
        :Pinging
-           rem This will ping the frist adress and delete it from the list after setting variables of valid and invalid addressess.
+           rem This will ping the first address and delete it from the list after setting variables of valid and invalid addresses.
            for /f "skip=1 tokens=3,* delims==" %%i in (FINDER\TMP\pinging.tmp) do (
              type FINDER\TMP\pinging.tmp | find /c "64" > FINDER\TMP\up.tmp
              type FINDER\TMP\pinging.tmp | find /c "0, Lost" > FINDER\TMP\down.tmp
@@ -62,7 +62,7 @@ setlocal
              ) else (
                 goto :stat-down
              )
-          rem This will ckeck if the tested address not valid (is down).
+          rem This will check if the tested address not valid (is down).
           :stat-down
              if "%down%"=="1" (
                 goto :loop

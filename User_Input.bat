@@ -1,27 +1,27 @@
 @echo off 
 
 setlocal
-:: The Tool will first go to User input funnction. 
+:: The Tool will first go to User input function. 
 goto :User_input
 
-:: This is the descrioption & Usage of the tool "Help"
+:: This is the description & Usage of the tool "Help"
 :Usage
     cls
     echo ***********************************************************************************
-    echo                        IP-Finder Aplication - By Siddiq Jr 
+    echo                        IP-Finder Application - By Siddiq Jr 
     echo ***********************************************************************************
     echo.
-    echo Discription :
+    echo Description :
     echo *************
     echo.
-    echo App Will Finde all Active Addressess in Range /24 and print on screen
+    echo App Will Find all Active Addresses in Range /24 and print on screen
     echo and able to collect active address into a list 
     echo.
     echo usage :
     echo ******* 
     echo.
-    echo ip-finder                          Will Show this Help Menu
-    echo IP-FINDER ^<address^>                Will scan ^for active addressess in range /24
+    echo ip-finder                             Will Show this Help Menu
+    echo IP-FINDER ^<address^>                 Will scan ^for active addresses in range /24
     echo IP-FINDER ^<address^> ^> file.txt     Will Save the output into a list File
     echo.
     echo Examples:
@@ -31,11 +31,11 @@ goto :User_input
     echo IP-FINDER 192.168.1 ^> IP-LIST.txt
     echo.
     echo Use For Good Only !
-    echo Auther is not responible for any illigale usage of the application.
+    echo Author is not responsible for any illegal usage of the application.
     echo ***********************************************************************************
     goto :eof
 
-:: User Input Function Takes the seecond argument and check for IP-Address Validity, then Sends it to The Next Function.
+:: User Input Function Takes the second argument and check for IP-Address Validity, then Sends it to The Next Function.
 :User_input
     set arg=%~1
     echo %arg% > Empty_Check.tmp
@@ -51,9 +51,9 @@ goto :User_input
        goto :Check_Addess
     )
 
-:: Check address function will check for the ip address rouls and "192.168.43" format.
+:: Check address function will check for the ip address rules and "192.168.43" format.
 :Check_Addess
-    rem This Get's the argument and devide it via " . " delimeter to Three Sections, and Set each section to a valiable.
+    rem This Get's the argument and divide it via " . " delimiter to Three Sections, and Set each section to a variable.
     echo %arg% > arg.tmp
     for /f "tokens=1,2,3,4,* delims=." %%a in (arg.tmp) do (
         echo %%a > sec1.tmp
@@ -100,7 +100,7 @@ goto :User_input
 :warning
     cls
     echo ***********************************************************************************
-    echo                        IP-Finder Aplication - By Siddiq Jr 
+    echo                        IP-Finder Application - By Siddiq Jr 
     echo ***********************************************************************************
     echo.
     echo.
@@ -121,6 +121,6 @@ goto :User_input
     set adress=%arg%
     rem The Below 2 lines are to test this batch only, will be deleted in the full application
     echo ip Add = %arg%
-    echo Here is the pinging prossess is done!
+    echo Here is the pinging process is done!
     goto :eof
 endlocal
