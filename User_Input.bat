@@ -6,7 +6,33 @@ goto :User_input
 
 :: This is the descrioption & Usage of the tool "Help"
 :Usage
-    echo Here Code For Usage Description!
+    cls
+    echo ***********************************************************************************
+    echo                        IP-Finder Aplication - By Siddiq Jr 
+    echo ***********************************************************************************
+    echo.
+    echo Discription :
+    echo *************
+    echo.
+    echo App Will Finde all Active Addressess in Range /24 and print on screen
+    echo and able to collect active address into a list 
+    echo.
+    echo usage :
+    echo ******* 
+    echo.
+    echo ip-finder                          Will Show this Help Menu
+    echo IP-FINDER ^<address^>                Will scan ^for active addressess in range /24
+    echo IP-FINDER ^<address^> ^> file.txt     Will Save the output into a list File
+    echo.
+    echo Examples:
+    echo *********
+    echo.
+    echo IP-FINDER 192.168.1
+    echo IP-FINDER 192.168.1 ^> IP-LIST.txt
+    echo.
+    echo Use For Good Only !
+    echo Auther is not responible for any illigale usage of the application.
+    echo ***********************************************************************************
     goto :eof
 
 :: User Input Function Takes the seecond argument and check for IP-Address Validity, then Sends it to The Next Function.
@@ -46,7 +72,7 @@ goto :User_input
         goto :warning 
         )
     if %sec1% LEQ 256 (
-         echo ok 
+         echo ok >nul
          ) else (
              goto :warning 
                 )
@@ -55,7 +81,7 @@ goto :User_input
          goto :warning 
          )
     if %sec2% LEQ 256 (
-         echo ok 
+         echo ok >nul
          ) else (
              goto :warning 
                 )
@@ -64,7 +90,7 @@ goto :User_input
          goto :warning 
          )
     if %sec3% LEQ 256 (
-        echo ok
+        echo ok >nul
         goto :Ping_Func
      ) else (
        goto :warning
@@ -72,12 +98,28 @@ goto :User_input
 
 :: This function shows only if there is an invalid input from user. 
 :warning
-    echo IP-Address Is Not Valid!
-    goto :eof
+    cls
+    echo ***********************************************************************************
+    echo                        IP-Finder Aplication - By Siddiq Jr 
+    echo ***********************************************************************************
+    echo.
+    echo.
+    echo.
+    echo                            IP-Address Is Not Valid !
+    echo.
+    echo.
+    echo.
+    echo.
+    echo.
+    echo.
+    echo.
+    timeout /t 3 >nul
+    goto :Usage
 
 :: Setup Function Will Be Part Of The Ping Function Code.
 :setup
     set adress=%arg%
+    rem The Below 2 lines are to test this batch only, will be deleted in the full application
     echo ip Add = %arg%
     echo Here is the pinging prossess is done!
     goto :eof

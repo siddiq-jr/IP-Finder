@@ -57,7 +57,7 @@ setlocal
           rem This will check if the tested address is valid (if Up), and go to check (if down).
           :stat-up
              if "%up%"=="1" (
-                echo %add% : Is Active !
+                echo %add%
                 goto :loop
              ) else (
                 goto :stat-down
@@ -72,6 +72,5 @@ setlocal
 
 :: This is the cleaning Function To delete all temp files and folders. 
 :cleaning
-    echo This is cleaning function
     rmdir /s /q FINDER
 endlocal 
