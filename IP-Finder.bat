@@ -1,5 +1,8 @@
 @echo off 
 
+:: this will size the window to the correct size and change the color to green for the application.
+mode 84 , 30
+color 2
 setlocal
 :: The Tool will first go to User input function. 
 goto :User_input
