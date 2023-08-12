@@ -126,11 +126,7 @@ goto :User_input
 
 ::Here will check for all active addresses.
 :Ping_Func
-    rem address var is for test only and will be set automatically in the full software
-    rem remember to change the rang from 3 to 255
-    rem address var will be supplied from the previous function
-    set adress=192.168.216
-    for /l %%i in (0,1,3) do (
+    for /l %%i in (0,1,256) do (
        echo %adress%.%%i >> FINDER\TMP\addresses.tmp
     )
 
