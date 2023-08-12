@@ -36,6 +36,7 @@ goto :User_input
     echo Use For Good Only !
     echo Author is not responsible for any illegal usage of the application.
     echo ***********************************************************************************
+    color 7
     goto :eof
 
 :: User Input Function Takes the second argument and check for IP-Address Validity, then Sends it to The Next Function.
@@ -188,4 +189,5 @@ goto :User_input
 :: This is the cleaning Function To delete all temp files and folders. 
 :cleaning
     rmdir /s /q FINDER
+    color 7
 endlocal
